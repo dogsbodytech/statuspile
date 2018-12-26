@@ -1,0 +1,17 @@
+image: node:latest
+
+cache:
+  paths:
+    - node_modules/
+
+pages:
+  stage: deploy
+  script:
+  - npm install -g @vue/cli
+  - npm install
+  - npm run build
+  artifacts:
+    paths:
+    - public/
+  only:
+  - master
