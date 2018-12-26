@@ -82,10 +82,7 @@ export default function() {
    * Composes status API URL based on provider type
    */
   this.getURL = function(provider) {
-    var suffix =
-      provider.type == "statuspage"
-        ? "/api/v2/summary.json"
-        : "/api/v1/components";
+    var suffix = provider.type == "statuspage" ? "/api/v2/summary.json" : "/api/v1/components";
     return provider.url + suffix;
   };
 }

@@ -2,6 +2,13 @@
   <div>
     <v-navigation-drawer v-model="drawer" fixed clipped app>
       <v-list dense>
+        <v-list-tile v-if="authenticated" avatar text-xs-center>
+          <v-list-tile-avatar>
+            <img :src="auth.authResult.idTokenPayload.picture" alt>
+          </v-list-tile-avatar>
+          <v-list-tile-title v-text="auth.authResult.idTokenPayload.user_metadata.handle"></v-list-tile-title>
+        </v-list-tile>
+
         <v-list-tile
           active-class="green--text"
           @click="drawer = !drawer"
@@ -28,12 +35,28 @@
             <v-list-tile-title>Dashboard</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile active-class="green--text" @click="drawer = !drawer">
+        <v-list-tile
+          active-class="green--text"
+          v-if="!authenticated"
+          @click="auth.login();"
+        >
           <v-list-tile-action>
             <v-icon>person</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
             <v-list-tile-title>Login</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile
+          active-class="green--text"
+          v-if="authenticated"
+          @click="auth.logout();drawer = !drawer;"
+        >
+          <v-list-tile-action>
+            <v-icon>person</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Logout</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
@@ -50,12 +73,21 @@
 
 
 <script>
+import auth from "../auth/AuthService";
+
 export default {
   name: "app-header",
   data() {
     return {
-      drawer: false
+      drawer: false,
+      auth,
+      authenticated: auth.authenticated
     };
+  },
+  created() {
+    auth.authNotifier.on("authChange", authState => {
+      this.authenticated = authState.authenticated;
+    });
   }
 };
 </script>

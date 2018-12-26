@@ -1,6 +1,6 @@
-/** 
- * List of all available provides 
-*/
+/**
+ * List of all available provides
+ */
 
 export default [
   /** Statuspage providers */
@@ -79,5 +79,5 @@ export default [
     name: "Sonassi",
     type: "cachet",
     url: "http://status.sonassi.com"
-  },
+  }
 ];

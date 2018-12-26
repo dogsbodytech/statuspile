@@ -14,6 +14,7 @@
 <script>
 import AppHeader from "./components/AppHeader";
 import AppFooter from "./components/AppFooter";
+import auth from "./auth/AuthService";
 
 export default {
   name: "App",
@@ -26,6 +27,9 @@ export default {
   },
   created() {
     this.$manager.loadActiveServices();
+    if (localStorage.getItem("loggedIn") === "true") {
+      auth.renewSession();
+    }
   }
 };
 </script>

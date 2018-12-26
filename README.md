@@ -10,11 +10,13 @@ npm install
 ```
 npm run serve
 ```
+Please add .env.local file which contain proper settings replica of production environment.
 
 ### Compiles and minifies for production
 ```
 npm run build
 ```
+Before you create production build, please make sure you configure appropriate Auth0 settings in .env.production file
 
 ### Lints and fixes files
 ```
