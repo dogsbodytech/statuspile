@@ -17,7 +17,14 @@ export default function() {
       _.each(services, service => {
         self.activeServices.push(service);
       });
+      self.sortActiveServices();
     }
+  };
+
+  this.sortActiveServices = function() {
+    self.activeServices = _.sortBy(self.activeServices, function(service) {
+      return service.providerName + service.name;
+    });
   };
 
   /**
@@ -25,6 +32,7 @@ export default function() {
    */
   this.addActiveService = function(service) {
     self.activeServices.push(service);
+    self.sortActiveServices();
     localStorage.setItem("services", JSON.stringify(self.activeServices));
   };
 

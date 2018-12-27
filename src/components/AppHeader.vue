@@ -37,9 +37,18 @@
         </v-list-tile>
         <v-list-tile
           active-class="green--text"
-          v-if="!authenticated"
-          @click="auth.login();"
+          @click="drawer = !drawer"
+          :to="{ name: 'about' }"
+          exact
         >
+          <v-list-tile-action>
+            <v-icon>info</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>About</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile active-class="green--text" v-if="!authenticated" @click="auth.login();">
           <v-list-tile-action>
             <v-icon>person</v-icon>
           </v-list-tile-action>

@@ -59,7 +59,8 @@ export default function() {
           providerName: provider.name,
           description: component.description,
           status: statuspageStatusMap[component.status].id,
-          statusText: statuspageStatusMap[component.status].text
+          statusText: statuspageStatusMap[component.status].text,
+          url: provider.url
         };
       });
     } else if (provider.type == "cachet") {
@@ -72,10 +73,15 @@ export default function() {
           providerName: provider.name,
           description: component.description,
           status: cachetStatusMap[component.status].id,
-          statusText: cachetStatusMap[component.status].text
+          statusText: cachetStatusMap[component.status].text,
+          url: provider.url
         };
       });
     }
+
+    provider.services = _.sortBy(provider.services, function(service) {
+      return service.providerName + service.name;
+    });
   };
 
   /**

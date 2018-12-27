@@ -33,7 +33,7 @@
           :key="service.id"
           v-for="service in $manager.activeServices"
         >
-          <v-card raised class="status-card" :color="'lighten-3 '+statusColorMap[service.status]">
+          <v-card :href="service.url" target="_blank" raised class="status-card" :color="'lighten-3 '+statusColorMap[service.status]">
             <v-img aspect-ratio="8">
               <v-container fill-height fluid>
                 <v-layout fill-height>
@@ -107,12 +107,27 @@ export default {
     this.registerActiveProviders();
     console.log(this.activeProviders);
     this.pollProviders();
-    this.timer = setInterval(this.pollProviders.bind(this), 100000);
+    this.setupTimer();
   },
   beforeDestroy() {
     clearInterval(this.timer);
   },
   methods: {
+    setupTimer: function() {
+      /**
+       * Takes card of small ticking clock
+       * to keep user informed about refresh countdown
+       */
+      this.timer = setInterval(() => {
+        this.clock--;
+        if (this.clock <= 0) {
+          this.clock = 100;
+          if (document.hasFocus()) {
+            this.pollProviders.bind(this)();
+          }
+        }
+      }, 1000);
+    },
     /**
      * Updates URL query string based on current active services
      */
@@ -137,6 +152,7 @@ export default {
           providerName: parts[1]
         });
       });
+      this.$manager.sortActiveServices();
     },
     /**
      * Removes service from current active servies
@@ -177,24 +193,13 @@ export default {
                 activeService.status = service.status;
                 activeService.statusText = service.statusText;
                 activeService.description = service.description;
+                activeService.url = provider.url;
               }
             });
           });
           this.$forceUpdate();
         });
       });
-
-      /**
-       * Takes card of small ticking clock
-       * to keep user informed about refresh countdown
-       */
-      var clockTimer = setInterval(() => {
-        this.clock--;
-        if (this.clock <= 0) {
-          clearInterval(clockTimer);
-          this.clock = 100;
-        }
-      }, 1000);
     }
   }
 };

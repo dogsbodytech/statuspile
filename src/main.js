@@ -1,4 +1,5 @@
 import Vue from "vue";
+import _ from "underscore";
 import "./plugins/vuetify";
 import App from "./App.vue";
 import router from "./router";
@@ -7,7 +8,7 @@ import Helper from "./helper";
 import Manager from "./manager";
 
 Vue.config.productionTip = false;
-Vue.prototype.$providers = providers;
+Vue.prototype.$providers = _.sortBy(providers, "name");
 Vue.prototype.$helper = new Helper();
 Vue.prototype.$manager = new Manager();
 
