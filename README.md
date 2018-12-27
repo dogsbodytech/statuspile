@@ -3,7 +3,7 @@ A status page of status pages that consolidates the status pages of various prov
 
 ## Powered By
 
-- [Vue CLI](https://cli.vuejs.org/) cli for development
+- [Vue CLI](https://cli.vuejs.org/) for development
 - [Vue.js](https://vuejs.org/) JavaScript framework
 - [Vuetify](https://vuetifyjs.com/en/) Material design framework
 - [Auth0](https://auth0.com/) Universal Identity Platform
