@@ -1,26 +1,5 @@
 <template>
   <div>
-    <div class="text-xs-center" v-if="activeProviders.length">
-      <v-progress-circular
-        v-if="clock==100"
-        :width="5"
-        :size="50"
-        color="green darken-3"
-        indeterminate
-      ></v-progress-circular>
-      <v-tooltip bottom>
-        <v-progress-circular
-          slot="activator"
-          v-if="clock!=100"
-          :rotate="270"
-          :size="50"
-          :width="10"
-          :value="clock"
-          color="green darken-3"
-        >{{clock}}</v-progress-circular>
-        <span>Refresh Countdown</span>
-      </v-tooltip>
-    </div>
     <v-container grid-list-md fluid>
       <v-layout row wrap>
         <v-flex
@@ -33,7 +12,13 @@
           :key="service.id"
           v-for="service in $manager.activeServices"
         >
-          <v-card :href="service.url" target="_blank" raised class="status-card" :color="'lighten-3 '+statusColorMap[service.status]">
+          <v-card
+            :href="service.url"
+            target="_blank"
+            raised
+            class="status-card"
+            :color="'lighten-3 '+statusColorMap[service.status]"
+          >
             <v-img aspect-ratio="8">
               <v-container fill-height fluid>
                 <v-layout fill-height>
@@ -55,7 +40,7 @@
               <v-flex text-xs-center>
                 <h3>{{service.statusText}}</h3>
               </v-flex>
-              <v-btn icon @click="removeService(service)">
+              <v-btn icon @click.prevent="removeService(service)">
                 <v-icon>delete</v-icon>
               </v-btn>
             </v-card-actions>
@@ -73,6 +58,29 @@
         </v-tooltip>
       </v-flex>
     </v-layout>
+    <div class="bottom-fixed px-2" v-if="activeProviders.length">
+      <div class="text-xs-center">
+        <v-progress-circular
+          v-if="clock==100"
+          :width="5"
+          :size="50"
+          color="green darken-3"
+          indeterminate
+        ></v-progress-circular>
+        <v-tooltip top tag="div">
+          <v-progress-circular
+            slot="activator"
+            v-if="clock!=100"
+            :rotate="270"
+            :size="50"
+            :width="10"
+            :value="clock"
+            color="green darken-3"
+          >{{clock}}</v-progress-circular>
+          <span>Refresh Countdown</span>
+        </v-tooltip>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -94,7 +102,14 @@ export default {
         4: "red",
         5: "red"
       },
-      activeProviders: []
+      activeProviders: [],
+      defaultServices: [
+        { name: "Europe", provider: "CloudFlare" },
+        { name: "Managed DNS", provider: "DNS Made Easy" },
+        { name: "LON1", provider: "Digital Ocean" },
+        { name: "Email", provider: "Dogsbody Technology" },
+        { name: "EU-West (London)", provider: "Linode" }
+      ]
     };
   },
   mounted() {
@@ -104,6 +119,14 @@ export default {
       this.setQueryServices();
     }
     console.log(this.$manager.activeServices);
+    if (
+      !this.$manager.activeServices.length &&
+      !localStorage.getItem("visitedOnce")
+    ) {
+      this.loadDefaultServices();
+      localStorage.setItem("visitedOnce", "true");
+    }
+
     this.registerActiveProviders();
     console.log(this.activeProviders);
     this.pollProviders();
@@ -113,6 +136,20 @@ export default {
     clearInterval(this.timer);
   },
   methods: {
+    /**
+     * Loads default active services
+     */
+    loadDefaultServices: function() {
+      _.each(this.defaultServices, service => {
+        this.$manager.activeServices.push({
+          id: service.name + "||" + service.provider,
+          name: service.name,
+          providerName: service.provider
+        });
+      });
+
+      this.$manager.sortActiveServices();
+    },
     setupTimer: function() {
       /**
        * Takes card of small ticking clock

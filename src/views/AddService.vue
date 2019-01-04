@@ -1,15 +1,5 @@
 <template>
   <div>
-    <v-layout align-center>
-      <v-flex xs12 text-xs-center>
-        <v-tooltip top>
-          <v-btn :to="{ name: 'dashboard' }" slot="activator" color="green darken-3" dark fab>
-            <v-icon>chevron_left</v-icon>
-          </v-btn>
-          <span>Back To Dashboard</span>
-        </v-tooltip>
-      </v-flex>
-    </v-layout>
     <v-container>
       <v-layout row wrap>
         <v-flex xs12 mb-3>
@@ -26,7 +16,7 @@
                   <v-progress-circular indeterminate color="primary"></v-progress-circular>
                 </div>
                 <v-container v-if="provider.services">
-                  <v-list two-line>
+                  <v-list>
                     <template v-for="(service, index) in provider.services">
                       <v-list-tile
                         :class="{'grey lighten-5' : index%2 == 0, 'grey lighten-3' : index%2 == 1, 'success lighten-3' : $manager.isActive(service)}"
@@ -55,6 +45,14 @@
         </v-flex>
       </v-layout>
     </v-container>
+    <div class="bottom-fixed">
+      <v-tooltip tag="div" top class="text-xs-right">
+        <v-btn :to="{ name: 'dashboard' }" slot="activator" color="green darken-3" dark fab>
+          <v-icon>chevron_left</v-icon>
+        </v-btn>
+        <span>Back To Dashboard</span>
+      </v-tooltip>
+    </div>
   </div>
 </template>
 

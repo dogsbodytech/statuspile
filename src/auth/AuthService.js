@@ -19,6 +19,9 @@ class AuthService {
     scope: "openid"
   });
 
+  /** Management API instance */
+  auth0Mgmt;
+
   login() {
     this.auth0.authorize();
   }
@@ -41,6 +44,15 @@ class AuthService {
     this.expiresAt = authResult.expiresIn * 1000 + new Date().getTime();
 
     this.authNotifier.emit("authChange", { authenticated: true });
+
+    this.auth0Mgmt = new auth0.Management({
+      domain: process.env.VUE_APP_AUTH0_DOMAIN,
+      token: authResult.accessToken
+    });
+
+    this.auth0Mgmt.getUser(authResult.idTokenPayload.user_id, response => {
+      console.log(response);
+    });
 
     localStorage.setItem("loggedIn", true);
   }
