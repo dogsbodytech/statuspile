@@ -1,9 +1,11 @@
 /**
  * List of all available provides
+ * 
+ * N.B. As statuspile.com is https the providers below have to use https also.
  */
 
 export default [
-  /** Statuspage providers */
+  /** Statuspage providers - https://www.statuspage.io/ */
   {
     name: "BitBucket",
     type: "statuspage",
@@ -64,7 +66,7 @@ export default [
     type: "statuspage",
     url: "https://status.docker.com"
   },
-  /** Cachet providers */
+  /** Cachet providers - https://cachethq.io/ */
   {
     name: "Dogsbody Technology",
     type: "cachet",
