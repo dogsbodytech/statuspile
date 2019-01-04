@@ -61,9 +61,10 @@ export default [
     type: "statuspage",
     url: "https://status.atlassian.com"
   },
+  /** Status.io providers - https://status.io/ */
   {
     name: "Docker",
-    type: "statuspage",
+    type: "statusio",
     url: "https://status.docker.com"
   },
   /** Cachet providers - https://cachethq.io/ */
