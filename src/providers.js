@@ -77,5 +77,20 @@ export default [
     name: "DNS Made Easy",
     type: "cachet",
     url: "https://dnsstatus.com"
+  },
+  {
+    name: "openSUSE",
+    type: "cachet",
+    url: "https://status.opensuse.org/"
+  },
+  {
+    name: "UK2",
+    type: "cachet",
+    url: "https://status.uk2.net/"
+  },
+  {
+    name: "Magento Commerce (Cloud)",
+    type: "cachet",
+    url: "https://status.magento.cloud/"
   }
 ];
