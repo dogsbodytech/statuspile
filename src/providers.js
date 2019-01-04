@@ -74,10 +74,5 @@ export default [
     name: "DNS Made Easy",
     type: "cachet",
     url: "https://dnsstatus.com"
-  },
-  {
-    name: "Sonassi",
-    type: "cachet",
-    url: "http://status.sonassi.com"
   }
 ];
