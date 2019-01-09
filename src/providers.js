@@ -1,9 +1,11 @@
 /**
  * List of all available provides
+ * 
+ * N.B. As statuspile.com is https the providers below have to use https also.
  */
 
 export default [
-  /** Statuspage providers */
+  /** Statuspage providers - https://www.statuspage.io/ */
   {
     name: "BitBucket",
     type: "statuspage",
@@ -59,12 +61,13 @@ export default [
     type: "statuspage",
     url: "https://status.atlassian.com"
   },
+  /** Status.io providers - https://status.io/ */
   {
     name: "Docker",
-    type: "statuspage",
+    type: "statusio",
     url: "https://status.docker.com"
   },
-  /** Cachet providers */
+  /** Cachet providers - https://cachethq.io/ */
   {
     name: "Dogsbody Technology",
     type: "cachet",
@@ -76,8 +79,18 @@ export default [
     url: "https://dnsstatus.com"
   },
   {
-    name: "Sonassi",
+    name: "openSUSE",
     type: "cachet",
-    url: "http://status.sonassi.com"
+    url: "https://status.opensuse.org/"
+  },
+  {
+    name: "UK2",
+    type: "cachet",
+    url: "https://status.uk2.net/"
+  },
+  {
+    name: "Magento Commerce (Cloud)",
+    type: "cachet",
+    url: "https://status.magento.cloud/"
   }
 ];
