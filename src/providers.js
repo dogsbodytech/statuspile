@@ -42,6 +42,11 @@ export default [
     url: "https://status.lastpass.com"
   },
   {
+    name: "NTP Pool",
+    type: "statuspage",
+    url: "https://status.ntppool.org/"
+  },
+  {
     name: "Reddit",
     type: "statuspage",
     url: "https://reddit.statuspage.io"
