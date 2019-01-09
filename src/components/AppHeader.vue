@@ -6,7 +6,7 @@
           <v-list-tile-avatar>
             <img :src="auth.authResult.idTokenPayload.picture" alt>
           </v-list-tile-avatar>
-          <v-list-tile-title v-text="auth.authResult.idTokenPayload.user_metadata.handle"></v-list-tile-title>
+          <v-list-tile-title v-text="auth.authResult.idTokenPayload.nickname"></v-list-tile-title>
         </v-list-tile>
 
         <v-list-tile

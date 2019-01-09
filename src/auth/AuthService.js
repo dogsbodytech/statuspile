@@ -16,7 +16,7 @@ class AuthService {
     clientID: process.env.VUE_APP_AUTH0_CLIENT_ID,
     redirectUri: location.protocol + "//" + location.hostname + (location.port ? ":" + location.port : "") + "/callback",
     responseType: "token id_token",
-    scope: "openid"
+    scope: "openid profile email user_metadata picture"
   });
 
   /** Management API instance */
@@ -47,12 +47,12 @@ class AuthService {
 
     this.auth0Mgmt = new auth0.Management({
       domain: process.env.VUE_APP_AUTH0_DOMAIN,
-      token: authResult.accessToken
+      token: authResult.idTokenPayload.sub.split("|")[1]
     });
 
-    this.auth0Mgmt.getUser(authResult.idTokenPayload.user_id, response => {
-      console.log(response);
-    });
+    // this.auth0Mgmt.getUser(authResult.idTokenPayload.user_id, response => {
+    //   console.log(response);
+    // });
 
     localStorage.setItem("loggedIn", true);
   }
