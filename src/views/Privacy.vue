@@ -103,6 +103,19 @@
 
 <p>These third parties have access to your Personal Data only to perform these tasks on our behalf and are obligated not to disclose or use it for any other purpose.</p>
 
+<h3>Authentication</h3>
+
+<p>We may use third-party Service Providers to provide authentication &amp; authorization on our Service.</p>    
+
+<ul>
+  <li>
+    <p><strong>Auth0</strong></p>
+    <p>Auth0 is an authentication &amp; authorization service. You can visit their Privacy Policy page here: <a href="https://auth0.com/privacy">https://auth0.com/privacy</a></p>
+  </li>
+</ul>
+
+<p> </p>
+
 <h2>Links To Other Sites</h2>
 
 <p>Our Service may contain links to other sites that are not operated by us. If you click on a third party link, you will be directed to that third party's site. We strongly advise you to review the Privacy Policy of every site you visit.</p>
