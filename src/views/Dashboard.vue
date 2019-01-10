@@ -222,6 +222,11 @@ export default {
      */
     pollProviders: function() {
       console.log("Polling...");
+
+      _.each(this.$manager.activeServices, activeService => {
+        activeService.status = -1;
+      });
+      
       _.each(this.activeProviders, provider => {
         this.$helper.getServices(provider, true).then(services => {
           _.each(services, service => {

@@ -48,6 +48,32 @@
             <v-list-tile-title>About</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
+        <v-list-tile
+          active-class="green--text"
+          @click="drawer = !drawer"
+          :to="{ name: 'privacy' }"
+          exact
+        >
+          <v-list-tile-action>
+            <v-icon>vpn_lock</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Privacy Policy</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile
+          active-class="green--text"
+          @click="drawer = !drawer"
+          :to="{ name: 'terms' }"
+          exact
+        >
+          <v-list-tile-action>
+            <v-icon>list</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Terms of Service</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
         <v-list-tile active-class="green--text" v-if="!authenticated" @click="auth.login();">
           <v-list-tile-action>
             <v-icon>person</v-icon>
