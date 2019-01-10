@@ -14,7 +14,7 @@ class AuthService {
   auth0 = new auth0.WebAuth({
     domain: process.env.VUE_APP_AUTH0_DOMAIN,
     clientID: process.env.VUE_APP_AUTH0_CLIENT_ID,
-    audience: `https://${process.env.VUE_APP_AUTH0_DOMAIN}/api/v2/`,
+    audience: process.env.VUE_APP_AUTH0_AUDIENCE,
     redirectUri: location.protocol + "//" + location.hostname + (location.port ? ":" + location.port : "") + "/callback",
     responseType: "token id_token",
     scope: "openid profile email read:current_user update:current_user_metadata create:current_user_metadata user_metadata picture"
@@ -43,9 +43,18 @@ class AuthService {
   }
 
   populateSession(authResult, callback) {
-    this.auth0.client.userInfo(authResult.accessToken, (err, user) => {
+    /** https://auth0.com/docs/libraries/auth0js/v9
+     * https://github.com/auth0/auth0.js#auth0management
+     */
+    this.auth0Mgmt = new auth0.Management({
+      domain: process.env.VUE_APP_AUTH0_DOMAIN,
+      token: authResult.accessToken
+    });
+
+    this.auth0Mgmt.getUser(authResult.idTokenPayload.sub, (err, user) => {
       err && console.log(err);
       console.log(user);
+      authResult.user = user;
       this.setSession(authResult);
       callback && callback(authResult);
     });
@@ -57,31 +66,22 @@ class AuthService {
 
     this.authNotifier.emit("authChange", { authenticated: true });
 
-    /** https://auth0.com/docs/libraries/auth0js/v9
-     * https://github.com/auth0/auth0.js#auth0management
-     */
-    this.auth0Mgmt = new auth0.Management({
-      domain: process.env.VUE_APP_AUTH0_DOMAIN,
-      token: authResult.idToken
-    });
-
-    this.auth0Mgmt.getUser(authResult.idTokenPayload.sub, (err, user) => {
-      err && console.log(err);
-      console.log(user);
-    });
-
-    // this.auth0Mgmt.patchUserMetadata(authResult.idTokenPayload.sub, {}, (err, user) => {
-    //   err && console.log(err);
-    //   console.log(user);
-    // });
-
     localStorage.setItem("loggedIn", true);
   }
 
+  updateUserActiveServices(activeServices) {
+    this.auth0Mgmt.patchUserMetadata(this.authResult.idTokenPayload.sub, { active_services: activeServices }, (err, user) => {
+      err && console.log(err);
+      this.authResult.user = user;
+      console.log(user);
+    });
+  }
+
   renewSession() {
+    console.log("Checking session...");
     this.auth0.checkSession(
       {
-        audience: `https://${process.env.VUE_APP_AUTH0_DOMAIN}/api/v2/`,
+        audience: process.env.VUE_APP_AUTH0_AUDIENCE,
         scope: "openid profile email read:current_user update:current_user_metadata create:current_user_metadata user_metadata picture"
       },
       (err, authResult) => {
@@ -89,8 +89,8 @@ class AuthService {
         if (authResult && authResult.accessToken && authResult.idToken) {
           this.populateSession(authResult);
         } else if (err) {
-          this.logout();
           console.log(err);
+          this.logout();
         }
       }
     );
@@ -106,7 +106,6 @@ class AuthService {
     this.authNotifier.emit("authChange", false);
 
     localStorage.removeItem("loggedIn");
-    console.log(this.auth0);
     this.auth0.logout({
       returnTo: location.protocol + "//" + location.host
     });
