@@ -8,7 +8,7 @@
 
 <p>Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service.</p>
 
-<p>By accessing or using the Service you agree to be bound by these Terms. If you disagree with any part of the terms then you may not access the Service. The Terms and Conditions agreement  for StatusPile is based on the <a href="https://termsfeed.com/blog/sample-terms-and-conditions-template/">TermsFeed's Terms and Conditions Template</a>.</p>
+<p>By accessing or using the Service you agree to be bound by these Terms. If you disagree with any part of the terms then you may not access the Service.</p>
 
 <h2>Links To Other Web Sites</h2>
 
@@ -38,7 +38,11 @@
 
 <h2>Contact Us</h2>
 
-<p>If you have any questions about these Terms, please contact us.</p>  </v-container>
+<p>If you have any questions about these Terms, please contact us:</p>
+<ul>
+<li>By email: hello@statuspile.com</li>
+</ul>
+</v-container>
 </template>
 
 <style scoped lang="scss">
