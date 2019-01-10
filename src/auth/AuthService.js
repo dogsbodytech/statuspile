@@ -57,6 +57,9 @@ class AuthService {
 
     this.authNotifier.emit("authChange", { authenticated: true });
 
+    /** https://auth0.com/docs/libraries/auth0js/v9
+     * https://github.com/auth0/auth0.js#auth0management
+     */
     this.auth0Mgmt = new auth0.Management({
       domain: process.env.VUE_APP_AUTH0_DOMAIN,
       token: authResult.idToken

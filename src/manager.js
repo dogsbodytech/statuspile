@@ -9,16 +9,16 @@ export default function() {
   this.activeServices = [];
 
   /**
-   * Loads active services from localStorage
+   * Loads active services from user_metadata
    */
   this.loadActiveServices = function() {
-    var services = JSON.parse(localStorage.getItem("services"));
-    if (services) {
-      _.each(services, service => {
-        self.activeServices.push(service);
-      });
-      self.sortActiveServices();
-    }
+    // var services = Assign services from user_metadata;
+    // if (services) {
+    //   _.each(services, service => {
+    //     self.activeServices.push(service);
+    //   });
+    //   self.sortActiveServices();
+    // }
   };
 
   this.sortActiveServices = function() {
@@ -28,22 +28,29 @@ export default function() {
   };
 
   /**
-   * Add new servie to current active services & updates localStorage
+   * Add new servie to current active services
    */
   this.addActiveService = function(service) {
     self.activeServices.push(service);
     self.sortActiveServices();
-    localStorage.setItem("services", JSON.stringify(self.activeServices));
+    self.updateUserMetaData();
   };
 
   /**
-   * Remove service from active services & updates localStorage for the same
+   * Remove service from active services
    */
   this.removeActiveService = function(service) {
     var activeService = _.find(self.activeServices, { id: service.id });
     var index = self.activeServices.indexOf(activeService);
     self.activeServices.splice(index, 1);
-    localStorage.setItem("services", JSON.stringify(self.activeServices));
+    self.updateUserMetaData();
+  };
+
+  /**
+   * updates user_metadata with current active services
+   */
+  this.updateUserMetaData = function() {
+    //todo : Patch user_metadata object with self.activeServices
   };
 
   /**

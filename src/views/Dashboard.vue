@@ -119,12 +119,8 @@ export default {
       this.setQueryServices();
     }
     console.log(this.$manager.activeServices);
-    if (
-      !this.$manager.activeServices.length &&
-      !localStorage.getItem("visitedOnce")
-    ) {
+    if (!this.$manager.activeServices.length) {
       this.loadDefaultServices();
-      localStorage.setItem("visitedOnce", "true");
     }
 
     this.registerActiveProviders();
@@ -226,7 +222,7 @@ export default {
       _.each(this.$manager.activeServices, activeService => {
         activeService.status = -1;
       });
-      
+
       _.each(this.activeProviders, provider => {
         this.$helper.getServices(provider, true).then(services => {
           _.each(services, service => {
