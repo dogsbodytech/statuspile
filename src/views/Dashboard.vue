@@ -115,8 +115,6 @@ export default {
   mounted() {
     if (this.$route.query.services) {
       this.loadServicesFromQuery();
-    } else {
-      this.setQueryServices();
     }
     console.log(this.$manager.activeServices);
     if (!this.$manager.activeServices.length) {
@@ -160,16 +158,6 @@ export default {
           }
         }
       }, 1000);
-    },
-    /**
-     * Updates URL query string based on current active services
-     */
-    setQueryServices: function() {
-      var activeServices = _.pluck(this.$manager.activeServices, "id");
-      this.$router.replace({
-        name: "dashboard",
-        query: { services: JSON.stringify(activeServices) }
-      });
     },
     /**
      * Loads current active services from URL query string
