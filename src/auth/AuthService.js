@@ -64,12 +64,13 @@ class AuthService {
     this.authResult = authResult;
     this.expiresAt = authResult.expiresIn * 1000 + new Date().getTime();
 
-    this.authNotifier.emit("authChange", { authenticated: true });
+    this.authNotifier.emit("authChange", authResult);
 
     localStorage.setItem("loggedIn", true);
   }
 
   updateUserActiveServices(activeServices) {
+    if (!this.auth0Mgmt) return;
     this.auth0Mgmt.patchUserMetadata(this.authResult.idTokenPayload.sub, { active_services: activeServices }, (err, user) => {
       err && console.log(err);
       this.authResult.user = user;
@@ -98,8 +99,7 @@ class AuthService {
 
   logout() {
     // Clear access token and ID token from local storage
-    this.accessToken = null;
-    this.idToken = null;
+    this.authResult = null;
     this.expiresAt = null;
 
     this.userProfile = null;

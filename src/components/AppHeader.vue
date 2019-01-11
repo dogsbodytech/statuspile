@@ -2,7 +2,7 @@
   <div>
     <v-navigation-drawer v-model="drawer" fixed clipped app>
       <v-list dense>
-        <v-list-tile v-if="authenticated" avatar text-xs-center>
+        <v-list-tile v-if="auth.authResult" avatar text-xs-center>
           <v-list-tile-avatar>
             <img :src="auth.authResult.idTokenPayload.picture" alt>
           </v-list-tile-avatar>
@@ -74,7 +74,7 @@
             <v-list-tile-title>Terms of Service</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile active-class="green--text" v-if="!authenticated" @click="auth.login();">
+        <v-list-tile active-class="green--text" v-if="!auth.authResult" @click="login()">
           <v-list-tile-action>
             <v-icon>person</v-icon>
           </v-list-tile-action>
@@ -84,7 +84,7 @@
         </v-list-tile>
         <v-list-tile
           active-class="green--text"
-          v-if="authenticated"
+          v-if="auth.authResult"
           @click="auth.logout();drawer = !drawer;"
         >
           <v-list-tile-action>
@@ -115,14 +115,14 @@ export default {
   data() {
     return {
       drawer: false,
-      auth,
-      authenticated: auth.authenticated
+      auth
     };
   },
-  created() {
-    auth.authNotifier.on("authChange", authState => {
-      this.authenticated = authState.authenticated;
-    });
+  methods : {
+    login : function(){
+      localStorage.setItem('activeServices',JSON.stringify(this.$manager.activeServices));
+      this.auth.login();
+    }
   }
 };
 </script>
