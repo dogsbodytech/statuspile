@@ -1,5 +1,15 @@
 <template>
   <div>
+    <v-card
+      v-if="!auth.authResult"
+      @click="login"
+      flat
+      tile
+      tag="a"
+      class="indigo darken-4 white--text text-xs-center mx-4"
+    >
+      <v-card-text class="white--text">Login to save/restore your settings</v-card-text>
+    </v-card>
     <v-container grid-list-md fluid>
       <v-layout row wrap>
         <v-flex
@@ -87,11 +97,13 @@
 
 <script>
 import _ from "underscore";
+import auth from "../auth/AuthService";
 
 export default {
   name: "Dashboard",
   data() {
     return {
+      auth: auth,
       timer: null,
       clock: 100,
       cards: {},
@@ -130,6 +142,13 @@ export default {
     clearInterval(this.timer);
   },
   methods: {
+    login: function() {
+      localStorage.setItem(
+        "activeServices",
+        JSON.stringify(this.$manager.activeServices)
+      );
+      this.auth.login();
+    },
     /**
      * Loads default active services
      */
