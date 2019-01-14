@@ -52,11 +52,6 @@ export default [
     url: "https://reddit.statuspage.io"
   },
   {
-    name: "Dynatrace",
-    type: "statuspage",
-    url: "https://dynatrace.status.io"
-  },
-  {
     name: "Datadog",
     type: "statuspage",
     url: "https://status.datadoghq.com"
@@ -65,12 +60,6 @@ export default [
     name: "Atlassian",
     type: "statuspage",
     url: "https://status.atlassian.com"
-  },
-  /** Status.io providers - https://status.io/ */
-  {
-    name: "Docker",
-    type: "statusio",
-    url: "https://status.docker.com"
   },
   /** Cachet providers - https://cachethq.io/ */
   {
