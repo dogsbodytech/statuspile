@@ -63,6 +63,11 @@ export default [
     url: "https://freeagent.statuspage.io"
   },
   {
+    name: "GitHub",
+    type: "statuspage",
+    url: "https://www.githubstatus.com"
+  },
+  {
     name: "LastPass",
     type: "statuspage",
     url: "https://status.lastpass.com"
