@@ -43,6 +43,11 @@ export default [
     url: "https://status.bitbucket.org"
   },
   {
+    name: "Campaign Monitor",
+    type: "statuspage",
+    url: "https://status.campaignmonitor.com"
+  },
+  {
     name: "CloudFlare",
     type: "statuspage",
     url: "https://www.cloudflarestatus.com"
@@ -58,6 +63,11 @@ export default [
     url: "https://status.digitalocean.com"
   },
   {
+    name: "Dropbox",
+    type: "statuspage",
+    url: "https://status.dropbox.com"
+  },
+  {
     name: "FreeAgent",
     type: "statuspage",
     url: "https://freeagent.statuspage.io"
@@ -66,6 +76,11 @@ export default [
     name: "GitHub",
     type: "statuspage",
     url: "https://www.githubstatus.com"
+  },
+  {
+    name: "GoToMeeting",
+    type: "statuspage",
+    url: "https://status.gotomeeting.com"
   },
   {
     name: "LastPass",
@@ -83,13 +98,38 @@ export default [
     url: "https://status.newrelic.com"
   },
   {
+    name: "Nexmo",
+    type: "statuspage",
+    url: "https://www.nexmostatus.com"
+  },
+  {
     name: "NTP Pool",
     type: "statuspage",
     url: "https://status.ntppool.org/"
   },
   {
+    name: "Opsgenie",
+    type: "statuspage",
+    url: "https://status.opsgenie.com/"
+  },
+  {
     name: "Reddit",
     type: "statuspage",
     url: "https://reddit.statuspage.io"
+  },
+  {
+    name: "Shopify",
+    type: "statuspage",
+    url: "https://status.shopify.com/"
+  },
+  {
+    name: "Twilio",
+    type: "statuspage",
+    url: "https://status.twilio.com/"
+  },
+  {
+    name: "Twitter API",
+    type: "statuspage",
+    url: "https://api.twitterstat.us/"
   }
 ];
