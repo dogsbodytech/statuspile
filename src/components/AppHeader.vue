@@ -118,9 +118,13 @@ export default {
       auth
     };
   },
-  methods : {
-    login : function(){
-      localStorage.setItem('activeServices',JSON.stringify(this.$manager.activeServices));
+  methods: {
+    login: function() {
+      this.$sendAnalyticsPing({ path: "/login", name: "login" });
+      localStorage.setItem(
+        "activeServices",
+        JSON.stringify(this.$manager.activeServices)
+      );
       this.auth.login();
     }
   }

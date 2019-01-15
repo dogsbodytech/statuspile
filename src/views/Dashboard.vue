@@ -143,6 +143,7 @@ export default {
   },
   methods: {
     login: function() {
+      this.$sendAnalyticsPing({ path: "/login", name: "login" });
       localStorage.setItem(
         "activeServices",
         JSON.stringify(this.$manager.activeServices)
