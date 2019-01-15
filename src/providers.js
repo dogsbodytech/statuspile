@@ -26,11 +26,6 @@ export default [
     type: "cachet",
     url: "https://status.opensuse.org/"
   },
-  {
-    name: "UK2",
-    type: "cachet",
-    url: "https://status.uk2.net/"
-  },
   /** Statuspage providers - https://www.statuspage.io/ */
   {
     name: "Atlassian",
