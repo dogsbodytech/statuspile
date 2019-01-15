@@ -27,7 +27,7 @@ export default {
   },
   created() {
     this.$manager.init();
-    if (localStorage.getItem("loggedIn") === "true") {
+    if (localStorage.getItem("loggedIn")) {
       auth.renewSession();
     }
   }

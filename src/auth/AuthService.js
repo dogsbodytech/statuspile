@@ -66,7 +66,7 @@ class AuthService {
 
     this.authNotifier.emit("authChange", authResult);
 
-    localStorage.setItem("loggedIn", true);
+    localStorage.setItem("loggedIn", authResult.idTokenPayload.nonce);
   }
 
   updateUserActiveServices(activeServices) {
@@ -83,7 +83,8 @@ class AuthService {
     this.auth0.checkSession(
       {
         audience: process.env.VUE_APP_AUTH0_AUDIENCE,
-        scope: "openid profile email read:current_user update:current_user_metadata create:current_user_metadata user_metadata picture"
+        scope: "openid profile email read:current_user update:current_user_metadata create:current_user_metadata user_metadata picture",
+        nonce: localStorage.getItem("loggedIn")
       },
       (err, authResult) => {
         console.log(authResult);
@@ -116,7 +117,7 @@ class AuthService {
   isAuthenticated() {
     // Check whether the current time is past the
     // access token's expiry time
-    return new Date().getTime() < this.expiresAt && localStorage.getItem("loggedIn") === "true";
+    return new Date().getTime() < this.expiresAt && localStorage.getItem("loggedIn");
   }
 }
 
