@@ -103,11 +103,6 @@ export default [
     url: "https://status.ntppool.org/"
   },
   {
-    name: "Opsgenie",
-    type: "statuspage",
-    url: "https://status.opsgenie.com/"
-  },
-  {
     name: "Reddit",
     type: "statuspage",
     url: "https://reddit.statuspage.io"
