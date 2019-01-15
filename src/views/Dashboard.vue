@@ -116,11 +116,18 @@ export default {
       },
       activeProviders: [],
       defaultServices: [
+        { name: "Website", provider: "BitBucket" },
         { name: "Europe", provider: "CloudFlare" },
         { name: "Managed DNS", provider: "DNS Made Easy" },
         { name: "LON1", provider: "Digital Ocean" },
         { name: "Email", provider: "Dogsbody Technology" },
-        { name: "EU-West (London)", provider: "Linode" }
+        { name: "Telephone", provider: "Dogsbody Technology" },
+        { name: "Website", provider: "FreeAgent" },
+        { name: "Git Operations", provider: "GitHub" },
+        { name: "LastPass - Europe", provider: "LastPass" },
+        { name: "EU-West (London)", provider: "Linode" },
+        { name: "Global NTP Service", provider: "NTP Pool" },
+        { name: "Infrastructure", provider: "New Relic" }
       ]
     };
   },
