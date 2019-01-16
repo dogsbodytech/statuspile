@@ -184,7 +184,7 @@ export default {
             this.pollProviders.bind(this)();
           }
         }
-      }, 1000);
+      }, 900);
     },
     /**
      * Loads current active services from URL query string

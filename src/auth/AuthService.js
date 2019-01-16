@@ -83,8 +83,7 @@ class AuthService {
     this.auth0.checkSession(
       {
         audience: process.env.VUE_APP_AUTH0_AUDIENCE,
-        scope: "openid profile email read:current_user update:current_user_metadata create:current_user_metadata user_metadata picture",
-        nonce: localStorage.getItem("loggedIn")
+        scope: "openid profile email read:current_user update:current_user_metadata create:current_user_metadata user_metadata picture"
       },
       (err, authResult) => {
         console.log(authResult);
