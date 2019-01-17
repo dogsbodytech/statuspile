@@ -86,7 +86,7 @@
             :width="10"
             :value="clock"
             color="green darken-3"
-          >{{clock}}</v-progress-circular>
+          >{{Math.round(clock*0.9)}}</v-progress-circular>
           <span>Refresh Countdown</span>
         </v-tooltip>
       </div>
