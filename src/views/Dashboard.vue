@@ -142,6 +142,7 @@ export default {
 
     this.registerActiveProviders();
     console.log(this.activeProviders);
+    this.listenToAuth();
     this.pollProviders();
     this.setupTimer();
   },
@@ -156,6 +157,13 @@ export default {
         JSON.stringify(this.$manager.activeServices)
       );
       this.auth.login();
+    },
+    listenToAuth: function() {
+      auth.authNotifier.on("authChange", authContext => {
+        if (authContext) {
+          this.pollProviders();
+        }
+      });
     },
     /**
      * Loads default active services
