@@ -93,11 +93,6 @@ export default [
     url: "https://status.newrelic.com"
   },
   {
-    name: "Nexmo",
-    type: "statuspage",
-    url: "https://www.nexmostatus.com"
-  },
-  {
     name: "NTP Pool",
     type: "statuspage",
     url: "https://status.ntppool.org/"
