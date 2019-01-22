@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-navigation-drawer v-model="drawer" fixed clipped app>
+    <v-navigation-drawer v-model="drawer" fixed clipped right app>
       <v-list dense>
         <v-list-tile v-if="auth.authResult" avatar text-xs-center>
           <v-list-tile-avatar>
@@ -94,14 +94,28 @@
             <v-list-tile-title>Logout</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
+        <v-list-tile
+          active-class="green--text"
+          tag="a"
+          target="_blank"
+          href="https://github.com/dogsbodytech/statuspile/issues/new/choose"
+        >
+          <v-list-tile-action>
+            <!-- Material icons: https://material.io/tools/icons -->
+            <v-icon>bug_report</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Submit a bug</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar app fixed clipped-left>
-      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-flex xs12>
-        <v-img class="mx-auto" :src="require('../assets/logo.svg')" contain width="200"></v-img>
-      </v-flex>
+    <v-toolbar app fixed clipped-right>
+      <router-link :to="{ name: 'home' }">
+        <v-img :src="require('../assets/logo.svg')" contain width="200"></v-img>
+      </router-link>
       <v-spacer></v-spacer>
+      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
     </v-toolbar>
   </div>
 </template>

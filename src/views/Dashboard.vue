@@ -42,7 +42,6 @@
             <v-card-title primary-title>
               <v-flex>
                 <h3 class="headline mb-0 text-xs-center mb-2">{{service.name}}</h3>
-                <div class="text-xs-center">{{service.description}}</div>
               </v-flex>
             </v-card-title>
             <v-divider light></v-divider>
@@ -50,7 +49,7 @@
               <v-flex text-xs-center>
                 <h3>{{service.statusText}}</h3>
               </v-flex>
-              <v-btn icon @click.prevent="removeService(service)">
+              <v-btn absolute right icon @click.prevent="removeService(service)">
                 <v-icon>delete</v-icon>
               </v-btn>
             </v-card-actions>
@@ -103,6 +102,7 @@ export default {
   name: "Dashboard",
   data() {
     return {
+      visibility: document.visibilityState,
       auth: auth,
       timer: null,
       clock: 100,
@@ -145,6 +145,10 @@ export default {
     this.listenToAuth();
     this.pollProviders();
     this.setupTimer();
+
+    document.addEventListener("visibilitychange", () => {
+      this.visibility = document.visibilityState;
+    });
   },
   beforeDestroy() {
     clearInterval(this.timer);
@@ -188,7 +192,7 @@ export default {
         this.clock--;
         if (this.clock <= 0) {
           this.clock = 100;
-          if (document.hasFocus()) {
+          if (this.visibility == "visible") {
             this.pollProviders.bind(this)();
           }
         }
