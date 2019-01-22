@@ -39,7 +39,7 @@
               </v-container>
             </v-img>
 
-            <v-card-title primary-title>
+            <v-card-title>
               <v-flex>
                 <h3 class="headline mb-0 text-xs-center mb-2">{{service.name}}</h3>
               </v-flex>
