@@ -47,6 +47,10 @@ export default new Router({
       path: "/terms",
       name: "terms",
       component: () => import(/* webpackChunkName: "terms" */ "./views/Terms.vue")
+    },
+    {
+      path: "*",
+      redirect: '/'
     }
   ]
 });
