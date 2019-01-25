@@ -35,7 +35,7 @@ export default [
   {
     name: "BitBucket",
     type: "statuspage",
-    url: "https://status.bitbucket.org"
+    url: "https://bitbucket.status.atlassian.com/"
   },
   {
     name: "Campaign Monitor",
