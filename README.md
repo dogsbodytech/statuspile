@@ -11,7 +11,7 @@ A status page of status pages that consolidates the status pages of various prov
 
 ## Project setup
 
-```
+```bash
 npm install
 ```
 
@@ -20,6 +20,7 @@ npm install
 ```bash
 npm run serve
 ```
+
 Please add .env.local file which contains proper settings replica of production environment.
 
 ### Compiles and minifies for production
