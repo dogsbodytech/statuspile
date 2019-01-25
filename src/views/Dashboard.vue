@@ -165,6 +165,8 @@ export default {
     listenToAuth: function() {
       auth.authNotifier.on("authChange", authContext => {
         if (authContext) {
+          this.activeProviders = [];
+          this.registerActiveProviders();
           this.pollProviders();
         }
       });
