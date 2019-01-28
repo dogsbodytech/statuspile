@@ -7,9 +7,23 @@
         <h2 class="font-weight-regular display-1">(opensourced and free to use)</h2>
       </v-flex>
     </v-layout>
+
+    <v-layout align-center mt-5>
+      <v-flex xs12 text-xs-center>
+        <v-btn
+          large
+          dark
+          :to="{ name: 'dashboard' }"
+          color="indigo darken-4"
+        >Get started - create a dashboard
+          <v-icon right dark>chevron_right</v-icon>
+        </v-btn>
+      </v-flex>
+    </v-layout>
+
     <v-layout row wrap class="headline font-weight-light" :class="{'pt-4': $vuetify.breakpoint.mdAndUp}">
       <v-flex xs12 md6>
-        <h3 class="mb-4 font-weight-medium">Built by people that care about opensource, for the community they serve.</h3>
+        <h3 class="mb-4 font-weight-medium">Built by people that care about opensource and the community they serve.</h3>
         <p
           class="mb-3"
         >“We needed a status dashboard for the services we monitor for our clients. We couldn’t find one, so we built one.</p>
@@ -31,6 +45,7 @@
         <v-img :src="'/assets/dashboard-example-3.png'" contain></v-img>
       </v-flex>
     </v-layout>
+
     <v-layout align-center mt-5>
       <v-flex xs12 text-xs-center>
         <v-btn
@@ -59,10 +74,10 @@
         >Create your very own at-a-glance status dashboard showing your favourite service providers.</h3>
         <p
           class="mb-3"
-        >With 30 providers currently available, we’ll be adding more over the coming months. We’ll also be encouraging others to add their go-to services too.</p>
+        >With over 30 providers currently available, we’ll be adding more over the coming months. We also encourage you to add your go-to services too.</p>
         <p
           class="mb-4"
-        >Create a dashboard in seconds. To save your configuration, register an account using your favourite platform, via Auth0.</p>
+        >Create a dashboard in seconds. login using your favourite platform to save your configuration via Auth0.</p>
         <v-layout wrap>
           <v-flex>
             <v-img :src="'/assets/autho-300x100.png'" height="100" contain></v-img>
