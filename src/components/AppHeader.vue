@@ -114,7 +114,7 @@
           href="https://github.com/dogsbodytech/statuspile/issues/new?assignees=&labels=provider&template=suggest_provider.md"
         >
           <v-list-tile-action>
-            <v-icon>bug_report</v-icon>
+            <v-icon>add_box</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
             <v-list-tile-title>Suggest a provider</v-list-tile-title>
