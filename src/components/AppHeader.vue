@@ -8,7 +8,6 @@
           </v-list-tile-avatar>
           <v-list-tile-title v-text="auth.authResult.idTokenPayload.nickname"></v-list-tile-title>
         </v-list-tile>
-
         <v-list-tile
           active-class="green--text"
           @click="drawer = !drawer"
@@ -16,6 +15,7 @@
           exact
         >
           <v-list-tile-action>
+            <!-- Material icons: https://material.io/tools/icons -->
             <v-icon>home</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
@@ -85,14 +85,39 @@
           active-class="green--text"
           tag="a"
           target="_blank"
-          href="https://github.com/dogsbodytech/statuspile/issues/new/choose"
+          href="https://github.com/dogsbodytech/statuspile"
         >
           <v-list-tile-action>
-            <!-- Material icons: https://material.io/tools/icons -->
+            <v-icon>code</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Fork us on GitHub</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile
+          active-class="green--text"
+          tag="a"
+          target="_blank"
+          href="https://github.com/dogsbodytech/statuspile/issues/new?assignees=&labels=bug&template=bug_report.md"
+        >
+          <v-list-tile-action>
             <v-icon>bug_report</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
             <v-list-tile-title>Submit a bug</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile
+          active-class="green--text"
+          tag="a"
+          target="_blank"
+          href="https://github.com/dogsbodytech/statuspile/issues/new?assignees=&labels=provider&template=suggest_provider.md"
+        >
+          <v-list-tile-action>
+            <v-icon>bug_report</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Suggest a provider</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
