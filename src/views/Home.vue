@@ -4,7 +4,7 @@
     <v-layout text-xs-center wrap class="mb-5">
       <v-flex xs12>
         <h1 class="mb-4 display-2">Your status page of status pages</h1>
-        <h2 class="font-weight-regular display-1">(opensourced and free to use)</h2>
+        <h2 class="font-weight-regular display-1">(open sourced and free to use)</h2>
       </v-flex>
     </v-layout>
 
@@ -23,7 +23,7 @@
 
     <v-layout row wrap class="headline font-weight-light" :class="{'pt-4': $vuetify.breakpoint.mdAndUp}">
       <v-flex xs12 md6>
-        <h3 class="mb-4 font-weight-medium">Built by people that care about opensource and the community they serve.</h3>
+        <h3 class="mb-4 font-weight-medium">Built by people that care about open source and the community they serve.</h3>
         <p
           class="mb-3"
         >“We needed a status dashboard for the services we monitor for our clients. We couldn’t find one, so we built one.</p>
