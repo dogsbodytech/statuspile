@@ -15,7 +15,7 @@
           dark
           :to="{ name: 'dashboard' }"
           color="indigo darken-4"
-        >Get started - create a dashboard
+        >Get Started
           <v-icon right dark>chevron_right</v-icon>
         </v-btn>
       </v-flex>
@@ -53,7 +53,7 @@
           dark
           :to="{ name: 'dashboard' }"
           color="indigo darken-4"
-        >Get started - create a dashboard
+        >Create a dashboard
           <v-icon right dark>chevron_right</v-icon>
         </v-btn>
       </v-flex>
