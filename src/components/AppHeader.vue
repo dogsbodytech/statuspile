@@ -35,6 +35,14 @@
             <v-list-tile-title>Dashboard</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
+        <v-list-tile active-class="green--text" v-if="!auth.authResult" @click="login()">
+          <v-list-tile-action>
+            <v-icon>person</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Login</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
         <v-list-tile
           active-class="green--text"
           @click="drawer = !drawer"
@@ -59,26 +67,6 @@
           </v-list-tile-action>
           <v-list-tile-content>
             <v-list-tile-title>Terms of Service</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-        <v-list-tile active-class="green--text" v-if="!auth.authResult" @click="login()">
-          <v-list-tile-action>
-            <v-icon>person</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>Login</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-        <v-list-tile
-          active-class="green--text"
-          v-if="auth.authResult"
-          @click="auth.logout();drawer = !drawer;"
-        >
-          <v-list-tile-action>
-            <v-icon>person</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>Logout</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
         <v-list-tile
@@ -118,6 +106,18 @@
           </v-list-tile-action>
           <v-list-tile-content>
             <v-list-tile-title>Suggest a provider</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile
+          active-class="green--text"
+          v-if="auth.authResult"
+          @click="auth.logout();drawer = !drawer;"
+        >
+          <v-list-tile-action>
+            <v-icon>person</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Logout</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
