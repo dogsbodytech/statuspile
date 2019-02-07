@@ -26,6 +26,11 @@ export default [
     type: "cachet",
     url: "https://status.opensuse.org/"
   },
+  {
+    name: "Sonassi",
+    type: "cachet",
+    url: "https://status.sonassi.com/"
+  },
   /** Statuspage providers - https://www.statuspage.io/ */
   {
     name: "Atlassian",
