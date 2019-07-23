@@ -103,6 +103,11 @@ export default [
     url: "https://status.ntppool.org/"
   },
   {
+    name: "Recurly",
+    type: "statuspage",
+    url: "https://status.recurly.com/"
+  },
+  {
     name: "Reddit",
     type: "statuspage",
     url: "https://reddit.statuspage.io"
