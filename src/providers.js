@@ -103,6 +103,11 @@ export default [
     url: "https://status.ntppool.org/"
   },
   {
+    name: "Python",
+    type: "statuspage",
+    url: "https://status.python.org/"
+  },
+  {
     name: "Recurly",
     type: "statuspage",
     url: "https://status.recurly.com/"
