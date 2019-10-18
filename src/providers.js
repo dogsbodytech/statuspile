@@ -136,5 +136,10 @@ export default [
     name: "Twitter API",
     type: "statuspage",
     url: "https://api.twitterstat.us/"
+  },
+  {
+    name: "Ubiquiti",
+    type: "statuspage",
+    url: "https://status.ui.com/"
   }
 ];
