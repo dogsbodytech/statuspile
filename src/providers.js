@@ -123,6 +123,11 @@ export default [
     url: "https://status.shopify.com/"
   },
   {
+    name: "Sprout Social",
+    type: "statuspage",
+    url: "https://status.sproutsocial.com/"
+  },
+  {
     name: "Twilio",
     type: "statuspage",
     url: "https://status.twilio.com/"
