@@ -166,5 +166,10 @@ export default [
     name: "Ubiquiti",
     type: "statuspage",
     url: "https://status.ui.com/"
+  },
+  {
+    name: "VTEX",
+    type: "statuspage",
+    url: "https://status.vtex.com/"
   }
 ];
