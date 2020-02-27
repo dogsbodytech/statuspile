@@ -127,7 +127,7 @@ export default {
         { name: "LastPass - Europe", provider: "LastPass" },
         { name: "EU-West (London)", provider: "Linode" },
         { name: "Global NTP Service", provider: "NTP Pool" },
-        { name: "Infrastructure", provider: "New Relic" }
+        { name: "INFRASTRUCTURE : Europe", provider: "New Relic" }
       ]
     };
   },
