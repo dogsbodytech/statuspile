@@ -33,11 +33,6 @@ export default [
   },
   /** Statuspage providers - https://www.statuspage.io/ */
   {
-    name: "Atlassian",
-    type: "statuspage",
-    url: "https://status.atlassian.com"
-  },
-  {
     name: "BitBucket",
     type: "statuspage",
     url: "https://bitbucket.status.atlassian.com/"
@@ -51,6 +46,11 @@ export default [
     name: "CloudFlare",
     type: "statuspage",
     url: "https://www.cloudflarestatus.com"
+  },
+  {
+    name: "Confluence",
+    type: "statuspage",
+    url: "https://confluence.status.atlassian.com/"
   },
   {
     name: "Datadog",
@@ -83,6 +83,21 @@ export default [
     url: "https://status.gotomeeting.com"
   },
   {
+    name: "Jira Core",
+    type: "statuspage",
+    url: "https://jira-core.status.atlassian.com/"
+  },
+  {
+    name: "Jira Service Desk",
+    type: "statuspage",
+    url: "https://jira-service-desk.status.atlassian.com/"
+  },
+  {
+    name: "Jira Software",
+    type: "statuspage",
+    url: "https://jira-software.status.atlassian.com/"
+  },
+  {
     name: "LastPass",
     type: "statuspage",
     url: "https://status.lastpass.com"
@@ -101,6 +116,11 @@ export default [
     name: "NTP Pool",
     type: "statuspage",
     url: "https://status.ntppool.org/"
+  },
+  {
+    name: "OpsGenie",
+    type: "statuspage",
+    url: "https://opsgenie.status.atlassian.com/"
   },
   {
     name: "Python",
@@ -126,6 +146,11 @@ export default [
     name: "Sprout Social",
     type: "statuspage",
     url: "https://status.sproutsocial.com/"
+  },
+  {
+    name: "Trello",
+    type: "statuspage",
+    url: "https://trello.status.atlassian.com/"
   },
   {
     name: "Twilio",
