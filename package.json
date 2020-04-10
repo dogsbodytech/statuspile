@@ -8,7 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "auth0-js": "^9.11.3",
+    "auth0-js": "^9.13.2",
     "axios": "^0.18.1",
     "eventemitter3": "^3.1.2",
     "underscore": "^1.9.1",
