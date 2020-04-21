@@ -171,5 +171,10 @@ export default [
     name: "VTEX",
     type: "statuspage",
     url: "https://status.vtex.com/"
+  },
+  {
+    name: "Zoom",
+    type: "statuspage",
+    url: "https://status.zoom.us/"
   }
 ];
