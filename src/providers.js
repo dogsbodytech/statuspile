@@ -133,6 +133,11 @@ export default [
     url: "https://opsgenie.status.atlassian.com/"
   },
   {
+    name: "PagerDuty",
+    type: "statuspage",
+    url: "https://status.pagerduty.com/"
+  },
+  {
     name: "Python",
     type: "statuspage",
     url: "https://status.python.org/"
