@@ -168,6 +168,11 @@ export default [
     url: "https://trello.status.atlassian.com/"
   },
   {
+    name: "Tresorit",
+    type: "statuspage",
+    url: "https://status.tresorit.com/"
+  },
+  {
     name: "Twilio",
     type: "statuspage",
     url: "https://status.twilio.com/"
