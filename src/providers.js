@@ -113,6 +113,11 @@ export default [
     url: "https://status.newrelic.com"
   },
   {
+    name: "NPM",
+    type: "statuspage",
+    url: "https://status.npmjs.org/"
+  },
+  {
     name: "NTP Pool",
     type: "statuspage",
     url: "https://status.ntppool.org/"
