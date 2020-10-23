@@ -118,6 +118,11 @@ export default [
     url: "https://status.ntppool.org/"
   },
   {
+    name: "OpenSRS",
+    type: "statuspage",
+    url: "https://www.opensrsstatus.com/"
+  },
+  {
     name: "OpsGenie",
     type: "statuspage",
     url: "https://opsgenie.status.atlassian.com/"
