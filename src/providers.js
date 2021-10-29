@@ -7,21 +7,6 @@
 export default [
   /** Cachet providers - https://cachethq.io/ */
   {
-    name: "DNS Made Easy",
-    type: "cachet",
-    url: "https://dnsstatus.com"
-  },
-  {
-    name: "Dogsbody Technology",
-    type: "cachet",
-    url: "https://status.dogsbody.com"
-  },
-  {
-    name: "Magento Commerce (Cloud)",
-    type: "cachet",
-    url: "https://status.magento.cloud/"
-  },
-  {
     name: "openSUSE",
     type: "cachet",
     url: "https://status.opensuse.org/"
