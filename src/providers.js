@@ -193,6 +193,11 @@ export default [
     url: "https://status.vtex.com/"
   },
   {
+    name: "Weebly",
+    type: "statuspage",
+    url: "https://weebly.statuspage.io/"
+  },
+  {
     name: "Zoom",
     type: "statuspage",
     url: "https://status.zoom.us/"
