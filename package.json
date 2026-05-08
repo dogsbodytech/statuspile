@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "auth0-js": "^10.0.0",
-    "axios": "^1.15.0",
+    "axios": "^1.15.2",
     "eventemitter3": "^3.1.2",
     "underscore": "^1.13.8",
     "vue": "^3.0.0",
